@@ -15,10 +15,23 @@
             </div>
         </div>
         <div class= "plantas">
+            <div class= "title-plantas">
+                <span>Plantas</span>                
+            </div>
+            <div class="outer-rect">
+                <div class="inner-rect"></div>
+            </div>            
+            <div class= "plantas">
 
+            </div>
         </div>
         <div class= "fotos">
-
+            <div class= "title-fotos">
+                <span>Fotos</span>                
+            </div>
+            <div class= "fotos">
+                
+            </div>
         </div>
     </div>
 </template>
@@ -59,8 +72,7 @@
 
 <style>
 .page {
-    background-color: rgba(148, 140, 131, 0.75); /* Valid RGBA value */
-    font-family: 'Inter', sans-serif;
+    padding: 20px;
 }
 
 .info-project{
@@ -73,16 +85,34 @@
     flex-direction: column;
 }
 
-.title {
-    font-size: 3em;
+.title, .title-plantas, .title-fotos {
+    font-size: 2.8em;
     font-weight: 500;
     color: #000000; 
 }
 
 .info {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 400;
     color: #ffffff; 
+}
+
+.outer-rect {
+    width: 100%;
+    max-width: 500px; /* Adjust the max-width as needed */
+    height: 20px;
+    border: 2px solid #000; /* Black border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #D3CFCB; /* Background color similar to the one in the image */
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.inner-rect {
+    width: 30%; /* Adjust the percentage based on progress */
+    height: 100%;
+    background-color: #2E2825; /* Darker fill color */
+    border-radius: 10px;
 }
 </style>
 

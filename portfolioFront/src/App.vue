@@ -7,3 +7,12 @@ export default {
   name: 'App',
 }
 </script>
+
+<style>
+  body {
+    background-color: rgba(148, 140, 131, 0.75);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+</style>

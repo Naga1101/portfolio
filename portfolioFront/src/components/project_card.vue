@@ -13,11 +13,7 @@
                     <span>Espaço de harmonia entre roby reles e natureza</span>
                 </div>
             </div>
-            <div class= "dir">
-                <div class= "top">
-                    <span>200m<sup>2</sup></span>
-                    <img src="/svgs/icon_casa.svg"/>
-                </div>
+            <div class= "dir"> 
                 <div class= "mid">
                     <span>{{ item.id }}</span>
                     <img src="/svgs/icon_quarto.svg"/>
@@ -48,21 +44,46 @@ export default {
 <style scoped>
 
 .card {
-    width: 450px;
-    height: 350px;
+    width: 575px;
+    height: 375px;
     background-color: rgba(111, 78, 55, 0.8);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
     font-family: 'Inter', sans-serif;
+    box-shadow: 10px 10px 10px rgba(50, 50, 50, 0.7),
+                -10px -10px 10px rgba(100, 100, 100, 0.6);
+    overflow: hidden;
 }
 
+@media (max-width: 1250px) {
+    .card {
+        width: 45%;
+        height: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .card {
+        width: 600px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 650px) {
+    .card {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
 .card:hover {
-            transform: scale(.98);
-            cursor: pointer;
-            z-index: 2;
-            opacity: 85%;
-        }
+    transform: scale(.98);
+    cursor: pointer;
+    z-index: 2;
+    opacity: 85%;
+}
 
 .imagem {
     flex: 0 0 60%;
@@ -100,6 +121,16 @@ export default {
     font-size: 1em;
 }
 
+@media (max-width: 450px) {
+    .upper-text{
+        font-size: 1.2em;
+    }
+    
+    .lower-text{
+        font-size: .8em;
+    }
+}
+
 .dir {
     display: flex;
     flex-direction: column;
@@ -120,9 +151,6 @@ export default {
     margin-left: 5px; 
 }
 
-.top span {
-    padding-right: 0.14em; 
-}
 .mid span {
     padding-right: 0.18em; 
 }
