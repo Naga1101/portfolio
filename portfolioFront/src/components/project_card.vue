@@ -44,8 +44,8 @@ export default {
 <style scoped>
 
 .card {
-    width: 575px;
-    height: 375px;
+    width: 560px;
+    height: 350px;
     background-color: rgba(111, 78, 55, 0.8);
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ export default {
 
 @media (max-width: 650px) {
     .card {
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 }

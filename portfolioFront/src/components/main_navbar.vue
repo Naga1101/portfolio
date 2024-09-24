@@ -14,7 +14,7 @@ html, body {
     display: flex;
     justify-content: flex-end;
     padding: 7px 30px;
-    background-color: rgba(148, 140, 131, 0.75);
+    background-color: #aea8a3;
     color: #000000;
     font-weight: 500;
     height: fit-content;

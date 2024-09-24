@@ -81,7 +81,7 @@ export default {
 <style scoped>
 .page {
     box-sizing: border-box;
-    padding: 20px;
+    padding: 0px;
 }
 
 .info {
@@ -200,8 +200,10 @@ export default {
     background-color: #aea8a3;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 20px;
-    padding: 30px 50px 20px 0;
+    padding: 20px 30px 20px 0;
+    gap: 30px;
     width: 100%;
     z-index: 1;
 }
@@ -211,21 +213,40 @@ export default {
     font-weight: 400; 
 }
 
+@media (max-width: 869px) {
+    .buttons {
+        padding: 20px 0px;
+        gap: 10px;
+    }
+}
+
 @media (max-width: 650px) {
     .buttons .button {
         font-size: 14px; 
     }
 
     .buttons div {
-        width: 8%;
+        width: 12%;
         padding: 10px 10px;
     }
 }
 
 @media (max-width: 575px) {
     .buttons .button {
-        font-size: 11px; 
-        font-weight: 600; 
+        font-size: 9px; 
+        font-weight: 700; 
+    }
+}
+
+@media (max-width: 400px) {
+    .buttons {
+        padding: 10px 0px;
+        gap: 30px;
+    }
+
+    .buttons .button {
+        font-size: 9px; 
+        font-weight: 700; 
     }
 }
 
@@ -238,6 +259,28 @@ export default {
     cursor: pointer;
     color: #403737;
     transition: background-color 0.3s;
+}
+
+@media (max-width: 575px) {
+    .buttons div { /* dentro dos butões */
+        width: 12%;
+        text-align: center;
+        padding: 5px 15px;
+    }
+}
+
+@media (max-width: 450px) {
+    .buttons div { 
+        text-align: center;
+        width: 30%;
+        padding: 18px 25px;
+    }
+}
+
+@media (max-width: 450px) {
+    .buttons div { 
+        width: 29.5%;
+    }
 }
 
 .buttons div.active {
@@ -256,10 +299,9 @@ export default {
 
 .cards {
     z-index: 0;
-    padding-left: 35px;
-    padding-right: 10px;
-    padding-top: 20px;
-    width: 100%;
+    margin-left: 25px;
+    padding-top: 10px;
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -271,31 +313,29 @@ export default {
 
 @media (max-width: 2200px) {
     .cards {
-        padding-left: 10px;
+        padding-left: 30px;
         padding-right: 10px;
-        column-gap: 10px;
+        column-gap: 20px;
         justify-self: start;
     }
 }
 
 @media (max-width: 950px) {
     .cards {
-        padding-left: 10px;
+        padding-left: 30px;
         padding-right: 10px;
-        column-gap: 10px;
+        column-gap: 20px;
     }
 }
 
-@media (max-width: 869px) {
+@media (max-width: 890px) {
     .cards {
         overflow: hidden;
         padding-left: 10px;
-        padding-right: 20px;
-        width: 100%;
+        width: 90%;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-around;
         row-gap: 15px;
     }
 }
