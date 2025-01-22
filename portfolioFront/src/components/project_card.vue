@@ -46,7 +46,7 @@ export default {
 .card {
     width: 560px;
     height: 350px;
-    background-color: rgba(111, 78, 55, 0.8);
+    background-color: rgba(217, 217, 217, 0.8);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
@@ -110,13 +110,13 @@ export default {
 }
 
 .upper-text{
-    color: #000000;
+    color: #282828;
     font-weight: 500;
     font-size: 1.5em;
 }
 
 .lower-text{
-    color: #FFFFFF;
+    color: #3F3F3F;
     font-weight: 400;
     font-size: 1em;
 }
@@ -135,7 +135,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-end; 
-    color: #FFFFFF;
+    color: #3F3F3F;
     font-size: 0.75em;
     font-weight: 400;
     text-align: right;

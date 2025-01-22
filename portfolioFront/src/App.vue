@@ -10,7 +10,7 @@ export default {
 
 <style>
   body {
-    background-color: rgba(148, 140, 131, 0.75);
+    background-color: rgba(233, 225, 209);
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;

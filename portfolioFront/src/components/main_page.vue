@@ -85,13 +85,13 @@ export default {
 }
 
 .info {
-    flex: 0 0 33%;
     display: flex;
     justify-content: space-between; /* Space between the text and the image */
     align-items: center; /* Vertically align the image and text */
-    padding: 20px 0;
+    padding: 0;
     padding-left: 1.5%;
     width: 100%;
+    max-height: 485px;
     background-color: rgba(0, 0, 0, 0.15); /* Background for the bio section */
     box-sizing: border-box;
 }
@@ -102,17 +102,17 @@ export default {
 }
 
 .upper-text {
-    font-size: 2.1em;
+    font-size: 1.7em;
     font-weight: 500;
-    color: #000;
+    color: #282828;
     margin-bottom: 10px;
 }
 
 .lower-text {
     font-size: 1em; 
-    line-height: 1.5em;
+    line-height: 1.3em;
     font-weight: 400;
-    color: #fff;
+    color: #282828;
 }
 
 @media (max-width: 1150px) {
@@ -163,15 +163,16 @@ export default {
 }
 
 .foto {
-    width: 100%; 
+    width: 83%; 
     height: auto;
-    max-width: 100%; 
+    max-width: 450px;
     overflow: hidden;
 }
 
 .foto img {
     width: 100%; 
     height: auto; 
+    max-height: 465px;
     object-fit: cover; 
     border-radius: 5px;
 }
@@ -184,7 +185,7 @@ export default {
 .title {
     font-size: 2em;
     font-weight: bold;
-    color: #000;
+    color: #282828;
     margin-bottom: 10px;
     z-index: 1;
 }
@@ -197,7 +198,7 @@ export default {
 .buttons {
     position: sticky;
     top: 0;
-    background-color: #aea8a3;
+    background-color: rgb(233, 225, 209);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -284,17 +285,17 @@ export default {
 }
 
 .buttons div.active {
-    color: #000000;
-    background-color: rgba(111, 78, 55, 0.8);
+    color: #282828;
+    background-color: rgba(166, 193, 207, 0.8);
     cursor: default;
 }
 
 .buttons div:hover {
-    background-color: rgba(111, 78, 55, 0.4);
+    background-color: rgba(166, 193, 207, 0.4);
 }
 
 .buttons div.active:hover {
-    background-color: rgba(111, 78, 55, 0.8);
+    background-color: rgba(166, 193, 207, 0.8);
 }
 
 .cards {
