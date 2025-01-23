@@ -80,6 +80,10 @@
         fill: #282828;
     }
 
+    .return_button:hover{
+        opacity: 85%;
+    }
+
     .return_button span {
         padding-left: 0.35em;
     }
@@ -87,5 +91,6 @@
     .right_data {
         display: inline-flex;
         align-items: center;
+        cursor: default;
     }
 </style>

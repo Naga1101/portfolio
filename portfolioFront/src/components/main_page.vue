@@ -94,6 +94,7 @@ export default {
     max-height: 485px;
     background-color: rgba(0, 0, 0, 0.15); /* Background for the bio section */
     box-sizing: border-box;
+    cursor: default;
 }
 
 .text {
@@ -188,6 +189,7 @@ export default {
     color: #282828;
     margin-bottom: 10px;
     z-index: 1;
+    cursor: default;
 }
 
 .buttons-cards {

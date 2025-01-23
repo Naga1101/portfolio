@@ -87,6 +87,7 @@
     max-height: 500px;
     background-color: #CABBA9;
     box-sizing: border-box;
+    cursor: default;
 }
 
 .info-text {
@@ -114,6 +115,7 @@
     font-size: 2.8em;
     font-weight: 500;
     color: #282828; 
+    cursor: default;
 }
 
 .info {
