@@ -4,16 +4,16 @@
         <div class= "info-project">
             <div class= "info-text">
                 <div class= "title">
-                    <span>Título do projeto {{ item.id }}</span>
+                    <span> {{ item.titulo }} </span>
                 </div>
                 <div class= "info">
-                    <span>Informação prolongada acerca do projeto realizado por paula do tipo {{ item.teste }}</span>
+                    <span> {{ item.descricao }} </span>
                 </div>
             </div>
-            <div class= "main image">
-
+            <div class= "main_image">
+                <img :src="item.main_image" alt="image"/>
             </div>
-        </div>
+        </div><!-- 
         <div class= "plantas">
             <div class= "title-plantas">
                 <span>Plantas</span>                
@@ -23,14 +23,16 @@
             </div>            
             <div class= "plantas">
 
+            </div> 
+        </div>-->
+        <div class="fotos">
+            <div class="title-fotos">
+                <span>Imagens e 3Ds</span>                
             </div>
-        </div>
-        <div class= "fotos">
-            <div class= "title-fotos">
-                <span>Fotos</span>                
-            </div>
-            <div class= "fotos">
-                
+            <div class="fotos">
+                <div v-for="(foto, index) in item.fotos" :key="index" class="foto-item">
+                    <img :src="foto" :alt="'image' + index"/>
+                </div>
             </div>
         </div>
     </div>
@@ -38,8 +40,7 @@
 
 <script>
     import Navbar from './main_navbar.vue';
-    import infoEdf from '../backend/projetos.json'; // Import your JSON data
-
+    import infoEdf from '../backend/projetos.json';
     export default {
         components: {
             Navbar,
@@ -72,29 +73,53 @@
 
 <style>
 .page {
-    padding: 20px;
+    box-sizing: border-box;
+    padding: 0px;
 }
 
 .info-project{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    max-height: 500px;
+    background-color: #CABBA9;
+    box-sizing: border-box;
 }
 
 .info-text {
     display: flex;
     flex-direction: column;
+    padding-left: 1.5%;
+    max-width: 85%; /* Control the width of the text section */
+    padding-right: 30px;
+}
+
+.main_image{
+    width: 60%; 
+    height: auto;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.foto img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 5px;
 }
 
 .title, .title-plantas, .title-fotos {
     font-size: 2.8em;
     font-weight: 500;
-    color: #000000; 
+    color: #282828; 
 }
 
 .info {
     font-size: 1.8em;
     font-weight: 400;
-    color: #ffffff; 
+    color: #282828; 
 }
 
 .outer-rect {

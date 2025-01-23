@@ -66,7 +66,7 @@ export default {
 
     computed: {
         filteredInfo() {
-            return this.edfInfo.filter(item => item.teste === this.activeButton);
+            return this.edfInfo.filter(item => item.type === this.activeButton);
         }
     },
 
@@ -286,16 +286,16 @@ export default {
 
 .buttons div.active {
     color: #282828;
-    background-color: rgba(166, 193, 207, 0.8);
+    background-color: rgba(166, 193, 207, 0.9);
     cursor: default;
 }
 
 .buttons div:hover {
-    background-color: rgba(166, 193, 207, 0.4);
+    background-color: rgba(166, 193, 207, 0.6);
 }
 
 .buttons div.active:hover {
-    background-color: rgba(166, 193, 207, 0.8);
+    background-color: rgba(166, 193, 207, 0.9);
 }
 
 .cards {

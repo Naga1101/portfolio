@@ -36,8 +36,8 @@ def get_files_from_folder(folder_path):
 
     return fotos, blueprints
 
-# List to store all houses
-houses = []
+# List to store all projects
+projects = []
 
 # Iterate over each folder in the root folder
 for folder_name in os.listdir(root_folder):
@@ -59,11 +59,11 @@ for folder_name in os.listdir(root_folder):
             'blueprints': [os.path.join(folder_path, blueprint) for blueprint in blueprints]
         })
 
-        houses.append(house_info)
+        projects.append(house_info)
 
-# Save the houses info to a JSON file
-output_file = 'houses.json'
+# Save the projects info to a JSON file
+output_file = 'projects.json'
 with open(output_file, 'w', encoding='utf-8') as json_file:
-    json.dump({'houses': houses}, json_file, ensure_ascii=False, indent=4)
+    json.dump({'projects': projects}, json_file, ensure_ascii=False, indent=4)
 
 print(f'JSON file saved: {output_file}')

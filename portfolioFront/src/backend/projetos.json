@@ -2,43 +2,93 @@
     "edfInfo": [
         { 
             "id": 1,
-            "teste": 1
+            "type": 1,
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 2,
-            "teste": 1 
+            "type": 1,
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 3,
-            "teste": 2 
+            "type": 2, 
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 4,
-            "teste": 3 
+            "type": 3, 
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 5,
-            "teste": 3 
+            "type": 3, 
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         {
             "id": 6,
-            "teste": 3
+            "type": 3,
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         {
             "id": 8,
-            "teste": 3
+            "type": 3,
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 7,
-            "teste": 3 
+            "type": 3, 
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 9,
-            "teste": 1
+            "type": 1,
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         },
         { 
             "id": 10,
-            "teste": 1
+            "type": 1,
+            "titulo": "Vila Moleza",
+            "resumo": "Espaço de harmonia entre roby reles e natureza",
+            "descricao": "Espaço de harmonia entre roby reles e natureza na famosa Vila Moleza",
+            "main_image": "/images/casa.png",
+            "fotos":  ["/images/casa.png","/images/casa.png","/images/casa.png","/images/casa.png"]
         }
     ]
 }

@@ -1,26 +1,25 @@
 <template>
-    
-    <div class= "card" @click="goToPage(item.id)">
-        <div class= "imagem">
-            <img src="/images/casa.png" alt="image"/>
+    <div class="card" @click="goToPage(item.id)">
+        <div class="imagem">
+            <img :src="item.main_image" alt="image"/>
         </div>
-        <div class= "card-info">
-            <div class= "esq">
-                <div class= "upper-text">
-                    <span>Vila Moleza</span>
+        <div class="card-info">
+            <div class="esq">
+                <div class="upper-text">
+                    <span>{{ item.titulo }}</span>
                 </div>
-                <div class= "lower-text">
-                    <span>Espaço de harmonia entre roby reles e natureza</span>
+                <div class="lower-text">
+                    <span>{{ item.resumo }}</span>
                 </div>
             </div>
-            <div class= "dir"> 
-                <div class= "mid">
+            <div class="dir">
+                <div class="mid">
                     <span>{{ item.id }}</span>
-                    <img src="/svgs/icon_quarto.svg"/>
+                    <img src="/svgs/icon_quarto.svg" />
                 </div>
-                <div class= "bottom">
-                    <p>{{ item.teste }}</p>
-                    <img src="/svgs/icon_casabanho.svg"/>
+                <div class="bottom">
+                    <p>{{ item.type }}</p>
+                    <img src="/svgs/icon_casabanho.svg" />
                 </div>
             </div>
         </div>
@@ -30,7 +29,10 @@
 <script>
 export default {
     props: {
-        item: Object
+        item: {
+            type: Object, 
+            required: true 
+        }
     },
 
     methods: {
@@ -46,7 +48,7 @@ export default {
 .card {
     width: 560px;
     height: 350px;
-    background-color: rgba(217, 217, 217, 0.8);
+    background-color: rgba(166, 193, 207, 0.9);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
