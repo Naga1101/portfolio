@@ -356,13 +356,13 @@ html, body {
     display: flex;
     justify-content: center;
     position: relative;
+    max-width: 750px;
+    max-height: 350px;
 }
 
 .project-image {
     width: 100%; 
     height: auto; 
-    max-width: 750px;
-    max-height: 350px;
     border-radius: 5px;
     z-index: 1;
     transition: opacity 0.3s ease; 
@@ -378,8 +378,8 @@ html, body {
     opacity: 0;
     z-index: 2;
     position: absolute;
-    bottom: 5%;
-    right: 5%;
+    bottom: 1rem;
+    right: 1rem;
     pointer-events: none;
 }
 
