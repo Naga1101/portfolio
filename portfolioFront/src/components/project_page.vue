@@ -13,41 +13,65 @@
             <div class= "main_image">
                 <img :src="item.main_image" alt="image"/>
             </div>
-        </div><!-- 
-        <div class= "plantas">
-            <div class= "title-plantas">
+        </div> 
+        <div v-if="item.plantas && item.plantas.length" class="plantas">
+            <div class="title-plantas">
                 <span>Plantas</span>                
             </div>
-            <div class="outer-rect">
-                <div class="inner-rect"></div>
-            </div>            
-            <div class= "plantas">
-
-            </div> 
-        </div>-->
+            <section class="container">
+                <div class="slider-wrapper">
+                    <div class="slider" ref="slider">
+                        <div v-for="(foto, index) in item.plantas" :key="index" class="foto-item" :id="'slide-' + index" :ref="'slide-' + index">
+                            <img class="project-image" :src="foto" :alt="'image' + index" @click="openMedia(index, 'plantas')"/>
+                            <img class="overlay-svg" src="/svgs/expand_image.svg" alt="Icon"/>
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <a v-for="(foto, index) in item.plantas" :key="'nav-' + index" :href="'#slide-' + index"></a>
+                    </div>
+                </div>
+            </section>
+            <div v-if="currentMediaType == 'plantas'" class="overlay" @click="closeMedia">
+                <div class="navigation" @click.stop>
+                    <button 
+                        class="next_prev_button" 
+                        @click="prevMedia" 
+                        :disabled="currentIndex === 0">
+                        <img class="rotate-180" src="/svgs/next_back_arrow.svg"/>
+                    </button>
+                    <img :src="item.plantas[currentIndex]" class="enlarged-projectImage"/>
+                    <button 
+                        class="next_prev_button" 
+                        @click="nextMedia" 
+                        :disabled="currentIndex === item.plantas.length - 1">
+                        <img src="/svgs/next_back_arrow.svg"/>
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="fotos">
             <div class="title-fotos">
                 <span>Imagens e 3Ds</span>                
             </div>
-            <div class="fotos-grid">
+            <div class="img-grid">
                 <div v-for="(foto, index) in item.fotos" :key="index" class="foto-item">
-                    <img class="project-image" :src="foto" :alt="'image' + index" @click="openImage(index)"/>
+                    <img class="project-image" :src="foto" :alt="'image' + index" @click="openMedia(index, 'fotos')"/>
                     <img class="overlay-svg" src="/svgs/expand_image.svg" alt="Icon"/>
                 </div>
             </div>
-            <div v-if="currentImage !== null" class="overlay" @click="closeImage">
+            <div v-if="currentMediaType == 'fotos'" class="overlay" @click="closeMedia">
                 <div class="navigation" @click.stop>
                     <button 
                         class="next_prev_button" 
-                        @click="prevImage" 
-                        :disabled="currentImage === 0">
+                        @click="prevMedia" 
+                        :disabled="currentIndex === 0">
                         <img class="rotate-180" src="/svgs/next_back_arrow.svg"/>
                     </button>
-                    <img :src="item.fotos[currentImage]" class="enlarged-image"/>
+                    <img :src="item.fotos[currentIndex]" class="enlarged-projectImage"/>
                     <button 
                         class="next_prev_button" 
-                        @click="nextImage" 
-                        :disabled="currentImage === item.fotos.length - 1">
+                        @click="nextMedia" 
+                        :disabled="currentIndex === item.fotos.length - 1">
                         <img src="/svgs/next_back_arrow.svg"/>
                     </button>
                 </div>
@@ -74,7 +98,8 @@
         data() {
             return {
                 item: null,
-                currentImage: null,
+                currentIndex: null,
+                currentMediaType: null,
             };
         },
 
@@ -87,27 +112,62 @@
                 this.item = infoEdf.edfInfo.find(projeto => String(projeto.id) === this.edificioID);
             },
 
-            openImage(index) {
-                this.currentImage = index;
+            openMedia(index, type) {
+                this.currentIndex = index;
+                this.currentMediaType = type;
             },
 
-            closeImage() {
-                this.currentImage = null;
+            closeMedia() {
+                this.scrollToCurrentImage();
+                this.currentIndex = null;
+                this.currentMediaType = null;
             },
 
-            prevImage() {
-                if (this.currentImage > 0) {
-                    this.transitionName = 'slide-left';
-                    this.currentImage--;
+            prevMedia() {
+                if (this.currentIndex > 0) {
+                    this.currentIndex--;
                 }
             },
 
-            nextImage() {
-                if (this.currentImage < this.item.fotos.length - 1) {
-                    this.transitionName = 'slide-right';
-                    this.currentImage++;
+            nextMedia() {
+                if (this.currentMediaType === 'fotos' && this.currentIndex < this.item.fotos.length - 1) {
+                    this.currentIndex++;
+                } else if (this.currentMediaType === 'plantas' && this.currentIndex < this.item.plantas.length - 1) {
+                    this.currentIndex++;
                 }
             },
+
+            scrollToCurrentImage() {
+                if (this.currentIndex === null || this.currentIndex === undefined) {
+                    console.warn("Current index is not set.");
+                    return;
+                }
+
+                this.$nextTick(() => {
+                    const slider = this.$refs.slider;
+
+                    if (!slider) {
+                    console.error("Slider element not found.");
+                    return;
+                    }
+
+                    // Attempt to locate the current slide by its ID directly
+                    const currentSlide = document.getElementById(`slide-${this.currentIndex}`);
+
+                    if (!currentSlide) {
+                    console.error(`Slide with ID "slide-${this.currentIndex}" not found.`);
+                    return;
+                    }
+
+                    // Smooth scroll the slider to align with the current slide
+                    slider.scrollTo({
+                    left: currentSlide.offsetLeft,
+                    behavior: "smooth",
+                    });
+
+                    console.log(`Scrolled to slide ${this.currentIndex}.`);
+                });
+            }
         }
     }
 </script>
@@ -218,23 +278,63 @@ html, body {
     color: #282828; 
 }
 
-.outer-rect {
-    width: 100%;
-    max-width: 500px;
-    height: 20px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    background-color: #D3CFCB;
-    padding: 2px;
-    box-sizing: border-box;
+/** Parte das plantas das casas */
+
+.plantas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 1.5%;
 }
 
-.inner-rect {
-    width: 30%;
-    height: 100%;
-    background-color: #2E2825;
-    border-radius: 10px;
+.container {
+    padding: 1.5rem;
 }
+
+.slider-wrapper {
+    position: relative;
+    max-width: 100rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;    
+}
+
+.slider div {
+    flex: 1 0 45%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+
+.slider nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 20rem;
+    background-color: rgb(233, 225, 209);
+    opacity: 0.75;
+    transition: ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+/** Parte das fotos das casas */
 
 .fotos {
     display: flex;
@@ -243,7 +343,7 @@ html, body {
     padding-left: 1.5%;
 }
 
-.fotos-grid {
+.img-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     align-items: center;
@@ -253,7 +353,9 @@ html, body {
 .foto-item {
     margin: 10px;
     cursor: pointer;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .project-image {
@@ -262,7 +364,7 @@ html, body {
     max-width: 750px;
     max-height: 350px;
     border-radius: 5px;
-    z-index: 0;
+    z-index: 1;
     transition: opacity 0.3s ease; 
 }
 
@@ -274,16 +376,16 @@ html, body {
 .overlay-svg {
     width: 50px;
     opacity: 0;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
-    transform: translate(-140%, 415%); 
-    transition: opacity 0.3s ease; 
+    bottom: 5%;
+    right: 5%;
     pointer-events: none;
 }
 
 .foto-item:hover .overlay-svg{
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 .overlay {
@@ -305,7 +407,7 @@ html, body {
     align-items: center;
 }
 
-.enlarged-image {
+.enlarged-projectImage {
     max-width: 80%;
     max-height: 80%;
     cursor: default;
